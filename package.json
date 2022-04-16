@@ -6,10 +6,10 @@
   "scripts": {
     "dev": "node .",
     "nodemon": "nodemon .",
-    "forever:start": "forever start .",
+    "forever:start": "forever start --watch server.js",
     "forever": "forever",
     "serve": "node server.js",
-    "serve:pm2": "pm2 start worker.config.js",
+    "serve:pm2": "pm2 start worker.config.js --watch",
     "serve:cluster": "pm2 start cluster.config.js",
     "pm2": "pm2"
   },
