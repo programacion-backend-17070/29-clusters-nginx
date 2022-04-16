@@ -3,6 +3,7 @@ const http = require("http")
 const CPUs = require("os").cpus().length
 
 const interval = require("./interval")
+const app = require("./app")
 
 console.log(CPUs)
 
@@ -18,5 +19,6 @@ if (cluster.isPrimary) {
     console.log(`Worker ${worker.process.pid} died`)
   })
 } else { 
-  interval()
+  // interval()
+  app.listen(PORT, () => console.log(`listening on: http://localhost:${PORT}\n`))
 }

@@ -4,13 +4,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node ."
+    "dev": "node .",
+    "nodemon": "nodemon .",
+    "forever:start": "forever start .",
+    "forever": "forever",
+    "serve": "node server.js",
+    "serve:pm2": "pm2 start worker.config.js",
+    "pm2": "pm2"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.3",
-    "moment": "^2.29.2"
+    "moment": "^2.29.2",
+    "pm2": "^5.2.0"
+  },
+  "devDependencies": {
+    "forever": "^4.0.3",
+    "nodemon": "^2.0.15"
   }
 }
