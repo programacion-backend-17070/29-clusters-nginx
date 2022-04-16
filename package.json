@@ -10,6 +10,7 @@
     "forever": "forever",
     "serve": "node server.js",
     "serve:pm2": "pm2 start worker.config.js",
+    "serve:cluster": "pm2 start cluster.config.js",
     "pm2": "pm2"
   },
   "keywords": [],

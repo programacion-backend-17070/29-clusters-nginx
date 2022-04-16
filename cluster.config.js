@@ -5,13 +5,5 @@ module.exports = {
     args   : "8080",
     instances : "max",
     exec_mode : "cluster"
-  }, {
-    name   : "Server 2",
-    script : "./server.js",
-    args   : "8081"
-  }, {
-    name   : "Server 3",
-    script : "./server.js",
-    args   : "8082"
   }]
 }
