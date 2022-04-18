@@ -1,14 +1,27 @@
-const express = require("express")
-const app = express()
+/// proceso principal
+/// subprocesos hijos/secundarios
 
-const PORT = process.argv[3] || 8080
-app.get("/", (req, res) => {
-  res.send({
-    pid: process.pid,
-    name: "server"
+const cluster = require("cluster")
+const CPUs = require("os").cpus().length
+
+const interval = require("./interval")
+const app = require("./server")
+const PORT = process.argv[2] || 8080
+
+// console.log(CPUs)
+
+if (cluster.isPrimary) {
+  for (let i = 0; i < CPUs; i++) {
+    setTimeout(() => cluster.fork(), 1500 * i)
+  }
+
+  cluster.on("exit", (worker, code, signal) => {
+    console.log(`Worker ${worker.process.pid} died`)
   })
-})
 
-app.all("*", (req, res) => res.sendStatus(404))
-
-app.listen(PORT, () => console.log(`listening on: http://localhost:${PORT}\n`))
+  // SIGTERM ctrl + c
+} else {
+  // console.log(process.pid, CPUs)
+  // interval()
+  app.listen(PORT, () => console.log(`listening on: http://localhost:${PORT}\n`))
+}

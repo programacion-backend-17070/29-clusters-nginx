@@ -4,12 +4,28 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node ."
+    "dev": "node .",
+    "dev:nodemon": "nodemon .",
+    "forever": "forever start .",
+    "forever:list": "forever list",
+    "forever:server1": "forever start server.js 8081",
+    "forever:server2": "forever start server.js 8082",
+    "forever:server3": "forever start server.js 8083",
+    "forever:all": "npm run forever:server1 && npm run forever:server2 && npm run forever:server3",
+    "pm2:start": "pm2 start server.js",
+    "pm2:startworker": "pm2 start worker.config.js",
+    "pm2:startcluster": "pm2 start cluster.config.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "forever": "^4.0.3",
+    "moment": "^2.29.3",
+    "pm2": "^5.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
