@@ -1,15 +1,15 @@
 module.exports = {
   apps: [{
     name: "Server 1",
-    script: "server.js",
-    args: "8081"
+    script: "index.js",
+    args: "3030"
   },{
     name: "Server 2",
-    script: "server.js",
-    args: "8082"
+    script: "index.js",
+    args: "3031"
   },{
     name: "Server 3",
-    script: "server.js",
-    args: "8083"
+    script: "index.js",
+    args: "3032"
   }]
 }

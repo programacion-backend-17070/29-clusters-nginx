@@ -1,8 +1,8 @@
 module.exports = {
   apps: [{
     name: "Server Cluster",
-    script: "server.js",
-    args: "8080",
+    script: "index.js",
+    args: "3030",
     instances: "max",
     exec_mode: "cluster"
   }]
